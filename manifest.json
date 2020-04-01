@@ -1,0 +1,6 @@
+{
+  "name": "leave",
+  "short_name": "leave",
+  "start_url": "/",
+  "display": "standalone"
+}

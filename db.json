@@ -1,0 +1,30 @@
+{
+  "users": [],
+  "companyHolidays": [
+    {
+      "id": 1,
+      "onAccountOf": "Holi",
+      "date": "25/03/2020"
+    },
+    {
+      "id": 2,
+      "onAccountOf": "Diwali",
+      "date": "11/03/2020"
+    },
+    {
+      "id": 3,
+      "onAccountOf": "Eid",
+      "date": "15/03/2020"
+    },
+    {
+      "id": 4,
+      "onAccountOf": "Raksha Bandhan",
+      "date": "3/03/2020"
+    },
+    {
+      "id": 5,
+      "onAccountOf": "Mahaveer Jayanti",
+      "date": "21/03/2020"
+    }
+  ]
+}
