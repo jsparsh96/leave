@@ -1,30 +1,48 @@
 {
-  "users": [],
+  "users": [
+    {
+      "name": "Sparsh",
+      "emailId": "Sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 1
+    }
+  ],
   "companyHolidays": [
     {
       "id": 1,
       "onAccountOf": "Holi",
-      "date": "25/03/2020"
+      "date": "2020-04-25"
     },
     {
       "id": 2,
       "onAccountOf": "Diwali",
-      "date": "11/03/2020"
+      "date": "2020-04-11"
     },
     {
       "id": 3,
       "onAccountOf": "Eid",
-      "date": "15/03/2020"
+      "date": "2020-04-15"
     },
     {
       "id": 4,
       "onAccountOf": "Raksha Bandhan",
-      "date": "3/03/2020"
+      "date": "2020-04-21"
     },
     {
       "id": 5,
       "onAccountOf": "Mahaveer Jayanti",
-      "date": "21/03/2020"
+      "date": "2020-04-03"
+    }
+  ],
+  "leaves": [
+    {
+      "fromDate": "2020-04-02",
+      "toDate": "2020-04-07",
+      "reason": ",jm",
+      "sapId": "51823861",
+      "id": 1
     }
   ]
 }
