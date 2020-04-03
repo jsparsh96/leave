@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <script>
+    window.MyAppGlobals = { rootPath: '/' };
+    window.BaseUrl = 'http://localhost:3000';
+  </script>
+
+  <title>Tests</title>
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
+</head>
+<body>
+  <script>
+    WCT.loadSuites([
+      // Load 'my-view1.html' test suite, using native shadow dom
+      './leave-app/login-page_test.html?dom=shadow',
+      './leave-app/leave-app_test.html?dom=shadow',
+      './leave-app/registration-page_test.html?dom=shadow',
+      './leave-app/home-page_test.html?dom=shadow',
+      './leave-app/leaves-page_test.html?dom=shadow'
+
+      // Load 'my-view1.html' test suite, using shadydom
+      // 'my-view1.html?wc-shadydom=true',
+    ]);
+  </script>
+</body>
+
+</html>

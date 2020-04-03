@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
   <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
   <script src="../../node_modules/@polymer/test-fixture/test-fixture.js"></script>
@@ -7,7 +8,7 @@
   <script src="../../node_modules/chai/chai.js"></script>
   <script src="../../node_modules/sinon/pkg/sinon.js"></script>
   <script src="../../node_modules/wct-mocha/wct-mocha.js"></script>
-  <script type="module" src="../../src/main-element/login-page.js"></script>
+  <script type="module" src="../../src/leave-app/login-page.js"></script>
 </head>
 
 <body>
@@ -16,58 +17,115 @@
       <login-page></login-page>
     </template>
   </test-fixture>
+
+  <test-fixture id="loginAjaxFixture">
+    <template>
+      <iron-ajax url="/responds_to_get_with_500_error_json"></iron-ajax>
+    </template>
+  </test-fixture>
   <script>
+    window.MyAppGlobals = { rootPath: '/' };
+    window.BaseUrl = 'http://localhost:3000';
+  </script>
+<script>
 
 
-      describe('When the component is rendered', function () {
-        beforeEach(function () {
-          element = fixture('loginFixture');
-          elementShadowRoot = element.shadowRoot;
-        });
-        it('should render the component', function () {
-          expect(element).to.be.exist;
-          expect(elementShadowRoot).to.be.exist;
-        });
-        it('should render the mobile number input field', () => {
-          let mobileNumber = elementShadowRoot.querySelector('#mobileNumber')
-          expect(mobileNumber).to.be.exist;
-        });
+    describe('When the component is rendered', function () {
+      beforeEach(function () {
+        element = fixture('loginFixture');
+        elementShadowRoot = element.shadowRoot;
+      });
+      it('should render the component', function () {
+        expect(element).to.be.exist;
+        expect(elementShadowRoot).to.be.exist;
+      });
+      it('should render the sapId input field', () => {
+        let sapId = elementShadowRoot.querySelector('#sapId')
+        expect(sapId).to.be.exist;
+      });
 
-        it('should render the password input field', () => {
-          let password = elementShadowRoot.querySelector('#password')
-          expect(password).to.be.exist;
-        });
-        it('should render the request login button', () => {
-          let loginBtn = elementShadowRoot.querySelector('#loginBtn');
-          let mobileNumber = elementShadowRoot.querySelector('#mobileNumber');
-          expect(loginBtn).to.be.exist;
-          expect(loginBtn.innerHTML).to.be.equal('LogIn');
-        });
+      it('should render the password input field', () => {
+        let password = elementShadowRoot.querySelector('#password')
+        expect(password).to.be.exist;
+      });
+      it('should render the request login button', () => {
+        let loginBtn = elementShadowRoot.querySelector('#loginBtn');
+        expect(loginBtn).to.be.exist;
+        // expect(loginBtn).to.be.equal('Login');
+      });
 
-        describe('AND when button is clicked', ()=>{
-          let sinonSpy;
-          let loginBtn;
+      describe('<iron-ajax>', function () {
+        var ajax;
+        var request;
+        var server;
+        var responseHeaders = {
+          json: { 'Content-Type': 'application/json' }
+        };
+        beforeEach(() => {
+          server = sinon.fakeServer.create();
+          server.respondWith(
+            'GET',
+            [200, responseHeaders.json, '{ "name": "Sparsh","emailId": "Sparsh@mail.com","sapId": "51823861","phone": 8447244781,"password": "123", "id": 1}']
+          );
+          server.respondWith(
+            'GET',
+            '/responds_to_get_with_500_error_json',
+            [500, responseHeaders.json, '{"success":false}']
+          );
+
+        });
+        afterEach(() => {
+          server.restore();
+        });
+        describe('when making simple GET requests for JSON', function () {
           beforeEach(() => {
-            loginBtn = elementShadowRoot.querySelector('#loginBtn');
-            sinonSpy = sinon.spy();
-            loginBtn.addEventListener('click', sinonSpy);
-          });
-          it('should call signIn() method once', function (done) {
-            flush(function () {
-              loginBtn.click();
-              expect(sinonSpy.callCount).to.be.equal(1)
-              done();
-            })
+            ajax = fixture('loginAjaxFixture');
           })
-          it('should validate the form and call the function makeAjaxCall', (done) => {
-        
-              element.$.mobileNumber.value = '1234567456';
-              element.$.password.value='123'
-              loginBtn.click();
-            })
+          it('has sane defaults that love you', function () {
+            request = ajax.generateRequest();
+            server.respond();
+            expect(request.response).to.be.ok;
+            expect(request.response).to.be.an('object');
+            expect(request.response.success).to.be.equal(false);
+          });
+        });
+      });
+      describe('AND when button is clicked', () => {
+        let sinonSpy;
+        let loginBtn;
+        beforeEach(() => {
+          loginBtn = elementShadowRoot.querySelector('#loginBtn');
+          sinonSpy = sinon.spy();
+          loginBtn.addEventListener('click', sinonSpy);
+        });
+        it('should call signIn() method once', function (done) {
+          flush(function () {
+            loginBtn.click();
+            expect(sinonSpy.callCount).to.be.equal(1)
+            done();
+          })
         })
-            })
-        
+        it('should validate the form and call the function makeAjaxCall', (done) => {
+
+          element.$.sapId.value = '51823861';
+          element.$.password.value = '123'
+          loginBtn.click();
+          done();
+        })
+      })
+      describe("when ever '_handleResponse()' is called", function () {
+        var data;
+        beforeEach(() => {
+          element.list.length=1;
+          data = [{"id":"1"} ];
+          element._handleResponse({ detail: { response: data } });
+        });
+        it("should have updated the length of list", function () {
+          expect(element.list.length).to.be.equal(data.length);
+        });
+      })
+    })
+
   </script>
 </body>
 

@@ -2,11 +2,363 @@
   "users": [
     {
       "name": "Sparsh",
-      "emailId": "Sparsh@mail.com",
+      "emailId": "sparsh@mail.com",
+      "sapId": "12345678",
+      "phone": 9876543212,
+      "password": "123",
+      "id": 1
+    },
+    {
+      "name": "jjlh",
+      "emailId": "765433456@h.j",
+      "sapId": "34568765",
+      "phone": 6787643345,
+      "password": "123",
+      "id": 2
+    },
+    {
+      "name": "nj",
+      "emailId": "kjh@mn.sd",
+      "sapId": "78656778",
+      "phone": 6756576776,
+      "password": "123",
+      "id": 3
+    },
+    {
+      "name": "bvnnm",
+      "emailId": "hgj@jh.lkj",
+      "sapId": "87654323",
+      "phone": 9876543212,
+      "password": "123",
+      "id": 4
+    },
+    {
+      "name": "njm",
+      "emailId": "nhjk@kjn.kj",
+      "sapId": "76543456",
+      "phone": 3456765434,
+      "password": "123",
+      "id": 5
+    },
+    {
+      "name": "kjkb",
+      "emailId": "jkn@fghj.sin",
+      "sapId": "34567765",
+      "phone": 4567654345,
+      "password": "123",
+      "id": 6
+    },
+    {
+      "name": "jkb",
+      "emailId": "jhkb@bn.gv",
+      "sapId": "87654456",
+      "phone": 5678754567,
+      "password": "123",
+      "id": 7
+    },
+    {
+      "name": "ghkh",
+      "emailId": "khg@jh.hj",
+      "sapId": "76754445",
+      "phone": 4656645467,
+      "password": "123",
+      "id": 8
+    },
+    {
+      "name": "hvb",
+      "emailId": "jhv@jhkg.jkg",
+      "sapId": "67564556",
+      "phone": 7656456765,
+      "password": "123",
+      "id": 9
+    },
+    {
+      "name": "jhv",
+      "emailId": "jh@kj.kk",
+      "sapId": "56765676",
+      "phone": 5567656765,
+      "password": "123",
+      "id": 10
+    },
+    {
+      "name": "sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 9876543456,
+      "password": "123",
+      "id": 11
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
       "sapId": "51823861",
       "phone": 8447244781,
       "password": "123",
-      "id": 1
+      "id": 12
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 13
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 14
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 15
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 16
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 17
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 18
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 19
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 20
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 21
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 22
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 23
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 24
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 25
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 26
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 27
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 28
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 29
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 30
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 31
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 32
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 33
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 34
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 35
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 36
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 37
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 38
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 39
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 40
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 41
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 42
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 43
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 44
+    },
+    {
+      "name": "Sparsh",
+      "emailId": "sparsh@mail.com",
+      "sapId": "51823861",
+      "phone": 8447244781,
+      "password": "123",
+      "id": 45
     }
   ],
   "companyHolidays": [
@@ -38,11 +390,449 @@
   ],
   "leaves": [
     {
-      "fromDate": "2020-04-02",
-      "toDate": "2020-04-07",
-      "reason": ",jm",
-      "sapId": "51823861",
+      "fromDate": "2020-04-08",
+      "toDate": "2020-04-16",
+      "reason": "Holiday",
       "id": 1
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 2
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 3
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 4
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 5
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 6
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 7
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 8
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 9
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 10
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 11
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 12
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 13
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 14
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 15
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 16
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 17
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 18
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 19
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 20
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 21
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 22
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 23
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 24
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 25
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 26
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 27
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 28
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 29
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "reason": "",
+      "id": 30
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "reason": "something",
+      "id": 31
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 32
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 33
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 34
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 35
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 36
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 37
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 38
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 39
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 40
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 41
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 42
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 43
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 44
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 45
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 46
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 47
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 48
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 49
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 50
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 51
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 52
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 53
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 54
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 55
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 56
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 57
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 58
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 59
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 60
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 61
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 62
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 63
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 64
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 65
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 66
+    },
+    {
+      "fromDate": "",
+      "toDate": "",
+      "sapId": "12344",
+      "reason": "",
+      "id": 67
+    },
+    {
+      "fromDate": "2020-08-04",
+      "toDate": "2020-09-04",
+      "sapId": "12344",
+      "reason": "something",
+      "id": 68
     }
   ]
 }

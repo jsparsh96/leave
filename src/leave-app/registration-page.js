@@ -8,6 +8,7 @@ import '@polymer/paper-item/paper-item.js';
 import '@polymer/paper-toast/paper-toast.js';
 import '@polymer/iron-form/iron-form.js';
 import '@polymer/iron-ajax/iron-ajax.js';
+import './shared/paper-loader.js';
 
 /**
  * @customElement
@@ -51,7 +52,7 @@ justify-self: center;
             grid-template-rows: 100px;
             height: 100px;
             width: 100%;
-background-color: #000000; 
+            background-color:black;
        }
        /* #logout{
            grid-row: 1/2;
@@ -66,7 +67,7 @@ background-color: #000000;
       </style>
       <header>
           <div id="heading">
-              <h1>ShopHere<iron-icon icon="shopping-cart"></iron-icon></h1>
+              <h1>LMS</h1>
           </div>
           <!-- <div id="logout">
               <paper-button>fgh</paper-button>
@@ -86,6 +87,7 @@ background-color: #000000;
         </iron-form>
       </main>
       </div>
+      <paper-loader display={{display}}></paper-loader>
       <paper-toast id="toast" text={{message}}></paper-toast>
       <iron-ajax id="ajax" on-response="_handleResponse" on-error="_handleError" content-type="application/json" handle-as="json"></iron-ajax>
    
@@ -96,6 +98,10 @@ background-color: #000000;
       message:{
           type:String,
           value:''
+      },
+      display:{
+          type:Boolean,
+          value:false
       }
     };
   }
@@ -104,13 +110,16 @@ background-color: #000000;
     * validation of the user form is done and then registration
     */
   _handleRegister() {
+
     if (this.$.register.validate()) {
       let userObj = {name:this.$.name.value,emailId:this.$.email.value,sapId:this.$.sapId.value, phone:parseInt(this.$.phone.value), password:this.$.password.value };
       console.log(userObj);
-      this._makeAjaxCall(`http://localhost:3000/users`, 'post', userObj);
+      this.display=true;
+      this._makeAjaxCall(`${BaseUrl}/users`, 'post', userObj);
       this.message='Registered Successfully...!!!'
       this.$.toast.open();
       this.$.register.reset();
+      this.display=false;
       window.history.pushState({},null,'#/login');
       window.dispatchEvent(new CustomEvent('location-changed'));
 

@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script src="../../node_modules/chai/chai.js"></script>
+    <script src="../../node_modules/sinon/pkg/sinon.js"></script>
+    <script src="../../node_modules/wct-mocha/wct-mocha.js"></script>
+    <script type="module" src="../../src/leave-app/home-page.js"></script>
+</head>
+<script>
+    window.BaseUrl = 'http://localhost:3000';
+</script>
+
+<body>
+    <test-fixture id="homeFixture">
+        <template>
+            <home-page></home-page>
+        </template>
+    </test-fixture>
+    <text-fixture id="homeAjaxFixture">
+        <template>
+            <iron-ajax method="POST" url="/responds_to_post_with_json"></iron-ajax>
+        </template>
+    </text-fixture>
+    <script>
+
+
+        describe('When the component is rendered', function () {
+            beforeEach(function () {
+                element = fixture('homeFixture');
+                elementShadowRoot = element.shadowRoot;
+            });
+
+            it('should render the component', function () {
+                expect(element).to.be.exist;
+                expect(elementShadowRoot).to.be.exist;
+            });
+            it('should render the fromDate input field', () => {
+                let fromDate = elementShadowRoot.querySelector('#fromDate')
+                expect(fromDate).to.be.exist;
+            });
+            it('should render the toDate input field', () => {
+                let toDate = elementShadowRoot.querySelector('#toDate')
+                expect(toDate).to.be.exist;
+            });
+            it('should render the reason input field', () => {
+                let reason = elementShadowRoot.querySelector('#reason')
+                expect(reason).to.be.exist;
+            });
+            it('should render the Submit button', () => {
+                let submit = elementShadowRoot.querySelector('#submit');
+
+            });
+
+            describe('AND when leaves page button is clicked', () => {
+                let sinonSpy;
+                let leaveBtn;
+                beforeEach(() => {
+                    leaveBtn = elementShadowRoot.querySelector('#leaveBtn');
+                    sinonSpy = sinon.spy();
+                    leaveBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _goToLeaves method once', function (done) {
+                    flush(function () {
+                        leaveBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    });
+                });
+            });
+
+            describe('AND when logOut is clicked', () => {
+                let sinonSpy;
+                let logoutBtn;
+                beforeEach(() => {
+                    logoutBtn = elementShadowRoot.querySelector('#logoutBtn');
+                    sinonSpy = sinon.spy();
+                    logoutBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _handleLogout method once', function (done) {
+                    flush(function () {
+                        logoutBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+            })
+
+            describe('AND when leavePage is clicked', () => {
+                let sinonSpy;
+                let leaves;
+                beforeEach(() => {
+                    leaves = elementShadowRoot.querySelector('#leaveBtn');
+                    sinonSpy = sinon.spy();
+                    leaves.addEventListener('click', sinonSpy);
+                });
+                it('should call _goToLeaves method once', function (done) {
+                    flush(function () {
+                        leaves.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+            })
+
+            describe('AND when submit button is clicked', () => {
+                let sinonSpy;
+                let submitBtn;
+                beforeEach(() => {
+                    let sapId={sapId:'12344'}
+                    sessionStorage.setItem('userDetails',JSON.stringify(sapId));
+                    element.user=JSON.parse(sessionStorage.getItem('userDetails'))
+                    submitBtn = elementShadowRoot.querySelector('#submit');
+                    sinonSpy = sinon.spy();
+                    submitBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _submitLeave method once', function (done) {
+                    flush(function () {
+                        submitBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1);
+                        done();
+                    })
+                })
+                it('should validate the form and call the function makeAjaxCall', (done) => {
+                    element.$.fromDate.value = '2020-08-04';
+                    element.$.toDate.value = '2020-09-04';
+                    element.$.reason.value = 'something';
+                    submitBtn.click();
+                    done();
+                })
+            })
+
+
+            describe('<iron-ajax>', function () {
+                var ajax;
+                var request;
+                var server;
+                var responseHeaders = {
+                    json: { 'Content-Type': 'application/json' }
+                };
+                beforeEach(() => {
+                    server = sinon.fakeServer.create();
+                    server.respondWith(
+                        'POST',
+                        '/responds_to_post_with_json',
+                        [200, responseHeaders.json, '{"post_success":true}']
+                    );
+                });
+                afterEach(() => {
+                    server.restore();
+                });
+                it('when making simple post requests for JSON', () => {
+                    beforeEach(() => {
+                        ajax = fixture('homeAjaxFixture');
+                    });
+                    it('sends a real post request', function () {
+                        request = ajax.generateRequest();
+                        server.respond();
+                        expect(request.response).to.be.ok;
+                        expect(request.response).to.be.an('object');
+                        expect(request.response.post_success).to.be.equal(true);
+                    });
+                });
+            });
+                    describe("when ever '_handleResponse()' is called", function () {
+                        var data;
+                        beforeEach(() => {
+                            data = [{ "id": 1, "title": "abc" }];
+                            element._handleResponse({ detail: { response: data } });
+                        });
+                        it("should have updated the length of list", function () {
+                            expect(element.userData.length).to.be.equal(data.length);
+                        });
+                    });
+        });
+
+
+    </script>
+</body>
+
+</html>

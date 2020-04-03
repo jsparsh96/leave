@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script src="../../node_modules/chai/chai.js"></script>
+    <script src="../../node_modules/sinon/pkg/sinon.js"></script>
+    <script src="../../node_modules/wct-mocha/wct-mocha.js"></script>
+    <script type="module" src="../../src/leave-app/leaves-page.js"></script>
+</head>
+
+<body>
+    <test-fixture id="leavesFixture">
+        <template>
+            <leaves-page></leaves-page>
+        </template>
+    </test-fixture>
+
+    <test-fixture id="getLeaves">
+        <template>
+            <iron-ajax url="/\/responds_to_get_with_json.*/"></iron-ajax>
+        </template>
+    </test-fixture>
+    <script>
+        window.BaseUrl = 'http://localhost:3000';
+    </script>
+
+    <script>
+
+
+        describe('When the component is rendered', function () {
+            beforeEach(function () {
+                let sapId={sapId:'12345'};
+                sessionStorage.setItem('userDetails',JSON.stringify(sapId));
+                element = fixture('leavesFixture');
+                elementShadowRoot = element.shadowRoot;
+                    
+            });
+            it('should render the component', function () {
+                expect(element).to.be.exist;
+                expect(elementShadowRoot).to.be.exist;
+            });
+            it('should render the table field', () => {
+                let table = elementShadowRoot.querySelector('table')
+                expect(table).to.be.exist;
+            });
+
+            describe('AND when homePage is clicked', () => {
+                let sinonSpy;
+                let home;
+                beforeEach(() => {
+                    Home = elementShadowRoot.querySelector('#homeBtn');
+                    sinonSpy = sinon.spy();
+                    Home.addEventListener('click', sinonSpy);
+                });
+                it('should call _goToHome method once', function (done) {
+                    flush(function () {
+                        Home.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+            })
+
+            describe('AND when logOut is clicked', () => {
+                let sinonSpy;
+                let logoutBtn;
+                beforeEach(() => {
+                    logoutBtn = elementShadowRoot.querySelector('#logoutBtn');
+                    sinonSpy = sinon.spy();
+                    logoutBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _handleLogout method once', function (done) {
+                    flush(function () {
+                        logoutBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+            })
+
+
+            describe('<iron-ajax>', function () {
+                var ajax;
+                var request;
+                var server;
+                var responseHeaders = {
+                    json: { 'Content-Type': 'application/json' }
+                };
+                
+                beforeEach(() => {
+
+                    server = sinon.fakeServer.create();
+                    server.respondWith(
+                        'GET', /\/responds_to_get_with_json.*/,
+                        [200, responseHeaders.json, '{ "success":true}']
+                    );
+                });
+                afterEach(() => {
+                    server.restore();
+                });
+                describe('when making simple GET requests for JSON', function () {
+                    beforeEach(() => {
+                        ajax = fixture('getLeaves');
+                    })
+                    it('has sane defaults that love you', function () {
+                        request = ajax.generateRequest();
+                        server.respond();
+                        expect(request.response).to.be.ok;
+                        expect(request.response).to.be.an('object');
+                        expect(request.response.success).to.be.equal(true);
+                    });
+                });
+            });
+            describe("when ever '_handleResponse()' is called", function () {
+                var data;
+                beforeEach(() => {
+                    data = [{ "id": 1, "title": "abc" }];
+                    element._handleResponse({ detail: { response: data } });
+                });
+                it("should have updated the length of list", function () {
+                    expect(element.list.length).to.be.equal(data.length);
+                });
+           
+            })
+        })
+
+    </script>
+</body>
+
+</html>

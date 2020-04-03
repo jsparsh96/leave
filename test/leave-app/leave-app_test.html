@@ -14,17 +14,15 @@
 
     <script type="module" src="../../src/leave-app/leave-app.js"></script>
   </head>
+  <script>
+    window.MyAppGlobals = { rootPath: '/' };
+    window.BaseUrl = 'http://localhost:3000';
+  </script>
   <body>
 
     <test-fixture id="BasicTestFixture">
       <template>
         <leave-app></leave-app>
-      </template>
-    </test-fixture>
-
-    <test-fixture id="ChangedPropertyTestFixture">
-      <template>
-        <leave-app prop1="new-prop1"></leave-app>
       </template>
     </test-fixture>
 

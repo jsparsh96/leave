@@ -5,6 +5,7 @@ import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/paper-toast/paper-toast.js';
 import '@polymer/iron-form/iron-form.js';
 import '@polymer/iron-ajax/iron-ajax.js';
+import './shared/paper-loader.js';
 
 /**
  * @customElement
@@ -66,7 +67,7 @@ background-color:rgb(216, 211, 211);
       </style>
       <header>
           <div id="heading">
-              <h1>ShopHere<iron-icon icon="shopping-cart"></iron-icon></h1>
+              <h1>LMS</h1>
           </div>
           <!-- <div id="logout">
               <paper-button>fgh</paper-button>
@@ -84,6 +85,7 @@ background-color:rgb(216, 211, 211);
         </iron-form>
       </main>
       </div>
+      <paper-loader display={{display}}></paper-loader>
       <paper-toast id="toast0" text={{message}}></paper-toast>
       <iron-ajax id="ajax" on-response="_handleResponse" on-error="_handleError" content-type="application/json" handle-as="json"></iron-ajax>
    
@@ -97,6 +99,10 @@ background-color:rgb(216, 211, 211);
             userData: {
                 type: Array,
                 value: []
+            },
+            display:{
+                type:Boolean,
+                value:false
             }
         };
     }
@@ -108,7 +114,8 @@ background-color:rgb(216, 211, 211);
         if (this.$.login.validate()) {
             let password = this.$.password.value;
             let sapId = this.$.sapId.value;
-            this._makeAjaxCall(`http://localhost:3000/users?sapId=${sapId}&&password=${password}`, 'get', null);
+            this.display=true;
+            this._makeAjaxCall(`${BaseUrl}/users?sapId=${sapId}&&password=${password}`, 'get', null);
 
         }
     }
@@ -127,10 +134,13 @@ background-color:rgb(216, 211, 211);
      */
     _handleResponse(event) {
         this.userData = event.detail.response[0];
+        this.display=false;
         if (this.userData != null) {
+            console.log(this.userData);
             sessionStorage.setItem('userDetails', JSON.stringify(this.userData));
             window.history.pushState({}, null, '#/home');
             window.dispatchEvent(new CustomEvent('location-changed'));
+            this.$.login.reset();
         }
         else {
             this.message = 'Invalid Credentials'
