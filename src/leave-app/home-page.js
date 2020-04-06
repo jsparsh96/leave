@@ -172,7 +172,7 @@ class HomePage extends PolymerElement {
         super.connectedCallback();
         this.user = JSON.parse(sessionStorage.getItem('userDetails'));
         this.display=true;
-        this._makeAjaxCall(`${BaseUrl}/companyHolidays`, 'get', null);
+        this._makeAjaxCall(`${Window.BaseUrl}/companyHolidays`, 'get', null);
         this.action = 'List';
         let today = new Date();
         this.dateToday = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
@@ -197,7 +197,7 @@ class HomePage extends PolymerElement {
             let sapId = this.user.sapId;
             let leaveObj = { fromDate, toDate,sapId, reason };
             this.display=true;
-            this._makeAjaxCall(`${BaseUrl}/leaves`, 'post', leaveObj);
+            this._makeAjaxCall(`${Window.BaseUrl}/leaves`, 'post', leaveObj);
             this.message = 'Leave Applied Successfully';
             this.$.toast.open();
             this.$.leaveForm.reset();
@@ -222,6 +222,10 @@ class HomePage extends PolymerElement {
         window.history.pushState({}, null, '#/login');
         window.dispatchEvent(new CustomEvent('location-changed'));
 
+    }
+
+    _handleError(){
+        this.display=false
     }
 
     /**

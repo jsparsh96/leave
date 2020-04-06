@@ -27,7 +27,7 @@
     window.MyAppGlobals = { rootPath: '/' };
     window.BaseUrl = 'http://localhost:3000';
   </script>
-<script>
+  <script>
 
 
     describe('When the component is rendered', function () {
@@ -65,7 +65,7 @@
           server = sinon.fakeServer.create();
           server.respondWith(
             'GET',
-            [200, responseHeaders.json, '{ "name": "Sparsh","emailId": "Sparsh@mail.com","sapId": "51823861","phone": 8447244781,"password": "123", "id": 1}']
+            [200, responseHeaders.json, 'userData:{ "name": "Sparsh","emailId": "Sparsh@mail.com","sapId": "51823861","phone": 8447244781,"password": "123", "id": 1}']
           );
           server.respondWith(
             'GET',
@@ -89,6 +89,19 @@
             expect(request.response.success).to.be.equal(false);
           });
         });
+
+        describe('when a request fails', function () {
+          it('we give an error with useful details', function () {
+            ajax.url = '/responds_to_get_with_502_error_json';
+            ajax.handleAs = 'json';
+            var eventFired = false;
+            ajax.addEventListener('error', function (event) {
+              expect(event.detail.request).to.be.ok;
+              expect(event.detail.error).to.be.ok;
+              eventFired = true;
+            });
+          })
+        })
       });
       describe('AND when button is clicked', () => {
         let sinonSpy;
@@ -107,8 +120,8 @@
         })
         it('should validate the form and call the function makeAjaxCall', (done) => {
 
-          element.$.sapId.value = '51823861';
-          element.$.password.value = '123'
+          element.sapId = '51823861';
+          element.password = '123'
           loginBtn.click();
           done();
         })
@@ -116,15 +129,15 @@
       describe("when ever '_handleResponse()' is called", function () {
         var data;
         beforeEach(() => {
-          element.list.length=1;
-          data = [{"id":"1"} ];
+          element.list.length = 1;
+          data = [{ "id": "1" }];
           element._handleResponse({ detail: { response: data } });
         });
         it("should have updated the length of list", function () {
           expect(element.list.length).to.be.equal(data.length);
         });
-      })
-    })
+      });
+    });
 
   </script>
 </body>

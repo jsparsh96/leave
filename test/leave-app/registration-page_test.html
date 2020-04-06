@@ -95,6 +95,18 @@
                         expect(request.response.post_success).to.be.equal(true);
                     });
                 });
+                describe('when a request fails', function () {
+                    it('we give an error with useful details', function () {
+                        ajax.url = '/responds_to_get_with_502_error_json';
+                        ajax.handleAs = 'json';
+                        var eventFired = false;
+                        ajax.addEventListener('error', function (event) {
+                            expect(event.detail.request).to.be.ok;
+                            expect(event.detail.error).to.be.ok;
+                            eventFired = true;
+                        });
+                    })
+                })
             });
 
             describe('AND when button is clicked', () => {
@@ -113,11 +125,11 @@
                     })
                 })
                 it('should validate the form and call the function makeAjaxCall', (done) => {
-                    element.$.name.value = 'Sparsh';
-                    element.$.email.value = 'sparsh@mail.com';
-                    element.$.sapId.value = '51823861';
-                    element.$.phone.value = '8447244781';
-                    element.$.password.value = '123'
+                    element.name = 'Sparsh';
+                    element.email = 'sparsh@mail.com';
+                    element.sapId = '51823861';
+                    element.phone = '8447244781';
+                    element.password = '123'
                     registerBtn.click();
 
                     done();

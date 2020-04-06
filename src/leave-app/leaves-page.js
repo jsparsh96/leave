@@ -173,7 +173,7 @@ class LeavesPage extends PolymerElement {
         super.connectedCallback();
         this.user = JSON.parse(sessionStorage.getItem('userDetails'));
         this.display=true;
-        this._makeAjaxCall(`${BaseUrl}/leaves?sapId=${this.user.sapId}`, 'get', null);
+        this._makeAjaxCall(`${Window.BaseUrl}/leaves?sapId=${this.user.sapId}`, 'get', null);
         this.action = 'List';
     }
 
@@ -194,7 +194,7 @@ class LeavesPage extends PolymerElement {
         console.log("here");
         console.log(event.model.item)
         this.id = event.model.item.id;
-        this._makeAjaxCall(`${BaseUrl}/leaves/${this.id}`, 'delete', null);
+        this._makeAjaxCall(`${Window.BaseUrl}/leaves/${this.id}`, 'delete', null);
         this.message = 'Deleted';
         this.$.toast.open();
     }
@@ -206,6 +206,11 @@ class LeavesPage extends PolymerElement {
         sessionStorage.clear();
         window.history.pushState({}, null, '#/login');
         window.dispatchEvent(new CustomEvent('location-changed'));
+    }
+
+    
+    _handleError(){
+        this.display=false
     }
 
     /**

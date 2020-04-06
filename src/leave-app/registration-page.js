@@ -77,11 +77,11 @@ justify-self: center;
       <main>
       <iron-form id="register">
       <form>
-      <paper-input id="name" required type="text" name="customerName" allowed-pattern=[a-zA-Z] label="Enter Name" > </paper-input>
-      <paper-input id="email" required type="email" error-message="Email Id must contain '@' symbol" name="emailIs"  label="Enter Email Id" > </paper-input>
-      <paper-input id="sapId" required allowed-pattern=[0-9] label="Enter SAP Id" minlength="8" maxlength="8"> </paper-input>
-      <paper-input id="phone" required name="phoneNo" allowed-pattern=[0-9] label="Enter Contact Number" minlength="10" maxlength="10"> </paper-input>
-      <paper-input id="password" required name="password" type="password" label="Enter Password"></paper-input>
+      <paper-input id="name" required value={{name}} type="text" name="customerName" allowed-pattern=[a-zA-Z] label="Enter Name" > </paper-input>
+      <paper-input id="email" required value={{email}} type="email" error-message="Email Id must contain '@' symbol" name="emailIs"  label="Enter Email Id" > </paper-input>
+      <paper-input id="sapId" required value={{sapId}} allowed-pattern=[0-9] label="Enter SAP Id" minlength="8" maxlength="8"> </paper-input>
+      <paper-input id="phone" required value={{phone}} name="phoneNo" allowed-pattern=[0-9] label="Enter Contact Number" minlength="13" maxlength="13" allowed-pattern=^[\-\+0-9]{1,15}$> </paper-input>
+      <paper-input id="password" value={{password}} required name="password" type="password" label="Enter Password"></paper-input>
       <paper-button raised id="registerBtn" on-click="_handleRegister">Register</paper-button>
         </form>
         </iron-form>
@@ -112,10 +112,10 @@ justify-self: center;
   _handleRegister() {
 
     if (this.$.register.validate()) {
-      let userObj = {name:this.$.name.value,emailId:this.$.email.value,sapId:this.$.sapId.value, phone:parseInt(this.$.phone.value), password:this.$.password.value };
+      let userObj = {name:this.name,emailId:this.email,sapId:this.sapId, phone:parseInt(this.phone), password:this.password};
       console.log(userObj);
       this.display=true;
-      this._makeAjaxCall(`${BaseUrl}/users`, 'post', userObj);
+      this._makeAjaxCall(`${Window.BaseUrl}/users`, 'post', userObj);
       this.message='Registered Successfully...!!!'
       this.$.toast.open();
       this.$.register.reset();
@@ -126,6 +126,12 @@ justify-self: center;
     }
   }
 
+
+_handleError(){
+  this.display=false;
+  this.message = 'Network Error';
+  this.$.toast.open();
+}
 
  /**
     * function to make ajax calls

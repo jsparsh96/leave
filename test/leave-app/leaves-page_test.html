@@ -32,11 +32,11 @@
 
         describe('When the component is rendered', function () {
             beforeEach(function () {
-                let sapId={sapId:'12345'};
-                sessionStorage.setItem('userDetails',JSON.stringify(sapId));
+                let sapId = { sapId: '12345' };
+                sessionStorage.setItem('userDetails', JSON.stringify(sapId));
                 element = fixture('leavesFixture');
                 elementShadowRoot = element.shadowRoot;
-                    
+
             });
             it('should render the component', function () {
                 expect(element).to.be.exist;
@@ -82,6 +82,8 @@
             })
 
 
+
+
             describe('<iron-ajax>', function () {
                 var ajax;
                 var request;
@@ -89,13 +91,18 @@
                 var responseHeaders = {
                     json: { 'Content-Type': 'application/json' }
                 };
-                
+
                 beforeEach(() => {
 
                     server = sinon.fakeServer.create();
                     server.respondWith(
                         'GET', /\/responds_to_get_with_json.*/,
                         [200, responseHeaders.json, '{ "success":true}']
+                    );
+                    server.respondWith(
+                        'GET',
+                        '/responds_to_get_with_500_error_json',
+                        [500, responseHeaders.json, '{"success":false}']
                     );
                 });
                 afterEach(() => {
@@ -113,7 +120,20 @@
                         expect(request.response.success).to.be.equal(true);
                     });
                 });
-            });
+            describe('when a request fails', function () {
+                        it('we give an error with useful details', function () {
+                            ajax.url = '/responds_to_get_with_502_error_json';
+                            ajax.handleAs = 'json';
+                            var eventFired = false;
+                            ajax.addEventListener('error', function (event) {
+                                expect(event.detail.request).to.be.ok;
+                                expect(event.detail.error).to.be.ok;
+                                eventFired = true;
+                            });
+                        })
+                    })
+                });
+
             describe("when ever '_handleResponse()' is called", function () {
                 var data;
                 beforeEach(() => {
@@ -123,9 +143,9 @@
                 it("should have updated the length of list", function () {
                     expect(element.list.length).to.be.equal(data.length);
                 });
-           
+
             })
-        })
+                })
 
     </script>
 </body>
